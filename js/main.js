@@ -33,4 +33,3 @@ function getInput() {
 
 mainButton.addEventListener('click', getInput);
 
-//actualizar el contador de intentos cada vez que el usuario pruebe
