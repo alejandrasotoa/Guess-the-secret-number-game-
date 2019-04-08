@@ -17,7 +17,8 @@ let acc = 0;
 function getInput() {
     let number = inputContent.value;
     console.log(number);
-    counter.innerHTML = acc++;
+    acc++
+    counter.innerHTML = acc;
 
     if (number === '') {
         feedback.innerHTML = 'Por favor introduce un número';
