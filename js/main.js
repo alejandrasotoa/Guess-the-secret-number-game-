@@ -6,20 +6,26 @@ const feedback = document.querySelector('.main__feedback--text');
 
 //generar un número random e imprimirlo en la consola.
 
-const randomNumber =  (max) => {
+function randomNumber(max) {
     return Math.ceil(Math.random() * max);
 }
 
-console.log(randomNumber(100));
-
+const randomNumberactual = randomNumber(100);
+console.log(randomNumberactual);
 //al pulsar el botón de prueba, acceder al contenido del input y mostrarlo en la consola
 
 function getInput() {
     let number = inputContent.value;
     console.log(number);
 
-    if (number = randomNumber) {
-        feedback.innerHTML = '¡HAS GANADO, CAMPEONA!';
+    if (number === '') {
+        feedback.innerHTML = 'Por favor introduce un número';
+    } else if (number > randomNumberactual) {
+        feedback.innerHTML = 'Demasiado alto, intenta otra vez';
+    } else if (number < randomNumberactual) {
+        feedback.innerHTML = 'Demasiado bajo, intenta otra vez';
+    } else {
+        feedback.innerHTML = '¡HAS GANADO CAMPEONA!'
     }
 }
 
