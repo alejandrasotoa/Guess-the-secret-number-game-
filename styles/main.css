@@ -42,3 +42,7 @@ body {
     width: 100%;
     text-align: center;
 }
+
+.italic {
+    font-style: italic;
+}
