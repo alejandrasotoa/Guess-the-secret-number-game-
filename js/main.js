@@ -15,19 +15,22 @@ console.log(randomNumberactual);
 let acc = 0; 
 
 function getInput() {
-    let number = inputContent.value;
+    let number = parseInt(inputContent.value);
     console.log(number);
-    acc++
-    counter.innerHTML = acc;
 
-    if (number === '') {
+    if (Number.isNaN(number)) {
         feedback.innerHTML = 'Por favor introduce un número';
+    } else if  (randomNumberactual === number) {
+        feedback.innerHTML = '¡HAS GANADO CAMPEONA!';
     } else if (number > randomNumberactual) {
         feedback.innerHTML = 'Demasiado alto, intenta otra vez';
-    } else if (number < randomNumberactual) {
+        acc++
+        counter.innerHTML = acc;
+    }
+    else {
         feedback.innerHTML = 'Demasiado bajo, intenta otra vez';
-    } else {
-        feedback.innerHTML = '¡HAS GANADO CAMPEONA!'
+        acc++
+        counter.innerHTML = acc;
     }
 }
 
