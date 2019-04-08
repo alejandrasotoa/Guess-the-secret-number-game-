@@ -26,8 +26,7 @@ function getInput() {
         feedback.innerHTML = 'Demasiado alto, intenta otra vez';
         acc++
         counter.innerHTML = acc;
-    }
-    else {
+    } else {
         feedback.innerHTML = 'Demasiado bajo, intenta otra vez';
         acc++
         counter.innerHTML = acc;
@@ -35,4 +34,4 @@ function getInput() {
 }
 
 mainButton.addEventListener('click', getInput);
-
+window.addEventListener('keypress', getInput);
