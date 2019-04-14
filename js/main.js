@@ -50,17 +50,21 @@ function fireClass() {
     iceItem.classList.add('hidden');
 }
 
+function feedbackInner(guess, text) {
+    feedback.innerHTML = `El número ${guess} está ${text}, intenta otra vez`
+}
+
 function feedbackInfo(number) {
     if (Number.isNaN(number)) {
         feedback.innerHTML = 'Por favor introduce un número';
     } else if (randomNumberactual === number) {
-        feedback.innerHTML = '¡HAS GANADO CAMPEONA!';
+        feedback.innerHTML = '¡HAS GANADO';
     } else if (number <= (randomNumberactual + 10) && number >= (randomNumberactual - 10)) {
-        feedback.innerHTML = 'Estás cerca, intenta otra vez';
+        feedbackInner(number, 'cerca');
         fireClass();
         counter();
     } else {
-        feedback.innerHTML = 'Muy lejos, intenta otra vez';
+        feedbackInner(number, 'muy lejos');
         iceClass();
         counter();
     }

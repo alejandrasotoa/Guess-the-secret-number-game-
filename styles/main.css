@@ -29,9 +29,10 @@ body {
     height: 30%;
 }
 .counter {
-    color: red;
+    color: grey;
     font-weight: bold;
     font-size: 18px;
+    margin-top: 20px;
 }
 
 .main__container {
