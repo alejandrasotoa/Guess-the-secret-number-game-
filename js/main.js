@@ -17,15 +17,21 @@ const randomNumberactual = randomNumber(100);
 console.log(randomNumberactual);
 
 let acc = 0;
-const counter = () =>{
+const counter = () => {
     acc++;
     counterItem.innerHTML = acc;
-} 
+}
 
-function getInput() {
+const startGame = () => {
     let number = parseInt(inputContent.value);
-    console.log(number);
     feedbackInfo(number);
+}
+
+const pressEnter = event => {
+    let number = parseInt(inputContent.value);
+    if (event.keyCode === 13) {
+        feedbackInfo(number);
+    }
 }
 
 function iceClass() {
@@ -47,7 +53,7 @@ function fireClass() {
 function feedbackInfo(number) {
     if (Number.isNaN(number)) {
         feedback.innerHTML = 'Por favor introduce un número';
-    } else if  (randomNumberactual === number) {
+    } else if (randomNumberactual === number) {
         feedback.innerHTML = '¡HAS GANADO CAMPEONA!';
     } else if (number <= (randomNumberactual + 10) && number >= (randomNumberactual - 10)) {
         feedback.innerHTML = 'Estás cerca, intenta otra vez';
@@ -60,4 +66,5 @@ function feedbackInfo(number) {
     }
 }
 
-mainButton.addEventListener('click', getInput);
+mainButton.addEventListener('click', startGame);
+body.addEventListener('keyup', pressEnter);
