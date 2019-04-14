@@ -67,7 +67,7 @@ function feedbackInfo(number) {
     if (Number.isNaN(number)) {
         feedback.innerHTML = 'Por favor introduce un número';
     } else if (randomNumberactual === number) {
-        feedback.innerHTML = '¡HAS GANADO!';
+        feedback.innerHTML = '¡YEEIIIII, HAS GANADO!';
         mainButton.disabled = true;
         inputContent.disabled = true;
         win()
