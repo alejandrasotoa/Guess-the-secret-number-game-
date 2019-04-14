@@ -25,7 +25,6 @@ const counter = () => {
 
 const startGame = () => {
     let number = parseInt(inputContent.value);
-    acc = 0;
     feedbackInfo(number);
 }
 
