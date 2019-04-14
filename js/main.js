@@ -70,6 +70,7 @@ function feedbackInfo(number) {
         feedback.innerHTML = '¡YEEIIIII, HAS GANADO!';
         mainButton.disabled = true;
         inputContent.disabled = true;
+        counter();
         win()
     } else if (number <= (randomNumberactual + 10) && number > randomNumberactual) {
         feedbackInner(number, 'cerca', 'bajo');
