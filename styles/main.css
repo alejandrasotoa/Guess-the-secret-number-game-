@@ -1,7 +1,7 @@
 body {
     padding: 0;
     margin: 0;
-    background: rgb(214, 191, 238);
+    background: rgb(174, 123, 230);
     height: 100vh;
     display: flex;
     flex-direction: column;
@@ -19,17 +19,25 @@ body {
     box-sizing: border-box;
     text-align: center;
     color: white;
+    letter-spacing: 1px;
 }
 
 .main__title {
     font-size: 40px;
 }
 
+.main__description {
+    margin: 0;
+    width: 400px;
+    font-size: 20px;
+}
+
 .main__feedback {
     height: 30%;
 }
+
 .counter {
-    color: grey;
+    color: white;
     font-weight: bold;
     font-size: 18px;
     margin-top: 20px;
@@ -52,6 +60,10 @@ body {
     box-sizing: border-box;
     border: 0px;
     font-family: 'Neucha', sans-serif;
+}
+
+.main__button {
+    box-shadow: 0 0 5px black;
 }
 
 .main__info {
@@ -174,9 +186,7 @@ body {
 }
 
 .ice {
-    background-image: linear-gradient( rgb(115, 172, 206), rgb(216, 232, 241) 95%);
-    opacity: 0.80;
-    
+    background-image: linear-gradient(#9dc6f1, #4193eb);    
 }
 
 .ice__body {

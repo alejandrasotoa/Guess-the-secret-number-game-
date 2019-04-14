@@ -2,7 +2,7 @@
 
 const body = document.querySelector('body');
 const inputContent = document.querySelector('.main__input');
-const mainButton = document.querySelector('.main__number');
+const mainButton = document.querySelector('.main__button');
 const feedback = document.querySelector('.main__feedback--text');
 const counterItem = document.querySelector('.main__counter');
 const fireItem = document.querySelector('.fire__item');
@@ -51,20 +51,20 @@ function fireClass() {
 }
 
 function feedbackInner(guess, text) {
-    feedback.innerHTML = `El número ${guess} está ${text}, intenta otra vez`
+    feedback.innerHTML = `El número ${guess} está ${text}, intenta otra vez`;
 }
 
 function feedbackInfo(number) {
     if (Number.isNaN(number)) {
         feedback.innerHTML = 'Por favor introduce un número';
     } else if (randomNumberactual === number) {
-        feedback.innerHTML = '¡HAS GANADO';
+        feedback.innerHTML = '¡HAS GANADO!';
     } else if (number <= (randomNumberactual + 10) && number >= (randomNumberactual - 10)) {
         feedbackInner(number, 'cerca');
         fireClass();
         counter();
-    } else {
-        feedbackInner(number, 'muy lejos');
+    } else if (number >= (randomNumberactual + 10)) {
+        feedbackInner(number, 'muy lejos', 'alto');
         iceClass();
         counter();
     }
