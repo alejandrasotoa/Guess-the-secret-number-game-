@@ -3,7 +3,6 @@
 const body = document.querySelector('body');
 const inputContent = document.querySelector('.main__input');
 const mainButton = document.querySelector('.main__button');
-// const resetButton = document.querySelector('.reset__button')
 const feedback = document.querySelector('.main__description');
 const counterItem = document.querySelector('.main__counter');
 const fireItem = document.querySelector('.fire__item');
