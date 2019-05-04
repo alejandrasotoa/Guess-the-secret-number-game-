@@ -8,28 +8,38 @@ const counterItem = document.querySelector ('.main__counter');
 const fireItem = document.querySelector ('.fire__item');
 const iceItem = document.querySelector ('.ice__item');
 const defaultItem = document.querySelector ('.default__item');
+const resetButton = document.querySelector ('.reset__button');
 
-function randomNumber (max) {
-  return Math.ceil (Math.random () * max);
-}
-
-const randomNumberactual = randomNumber (100);
-
+let randomNumberactual = 0;
 let acc = 0;
+let onGame = false;
+
+const randomNumber = max => {
+  return Math.ceil (Math.random () * max);
+};
+
 const counter = () => {
   acc++;
   counterItem.innerHTML = acc;
 };
 
 const startGame = () => {
-  let number = parseInt (inputContent.value);
-  feedbackInfo (number);
+  let number = parseInt(inputContent.value);
+  if (onGame === false) {
+    randomNumberactual = randomNumber (100);
+    acc = 0;
+    counterItem.innerHTML = acc;
+    onGame = true;
+    feedbackInfo(number);
+  } else {
+    feedbackInfo(number);
+  }
 };
 
 const pressEnter = event => {
   let number = parseInt (inputContent.value);
   if (event.keyCode === 13) {
-    feedbackInfo (number);
+    startGame ();
   }
 };
 
@@ -57,7 +67,7 @@ function win () {
 }
 
 function feedbackInner (guess, text, close) {
-  feedback.innerHTML = `El número ${guess} está ${text}, intenta uno más ${close}`;
+  feedback.innerHTML = `El ${guess} está ${text}, intenta uno más ${close}`;
 }
 
 function feedbackInfo (number) {
@@ -69,6 +79,7 @@ function feedbackInfo (number) {
     feedback.innerHTML = '¡YEEIIIII, HAS GANADO!';
     mainButton.disabled = true;
     inputContent.disabled = true;
+    onGame = false;
     counter ();
     win ();
   } else if (number <= randomNumberactual + 10 && number > randomNumberactual) {
@@ -90,5 +101,14 @@ function feedbackInfo (number) {
   }
 }
 
+const resetGame = () => {
+  mainButton.disabled = false;
+  inputContent.disabled = false;
+  inputContent.value = '';
+  win();
+  startGame();
+};
+
 mainButton.addEventListener ('click', startGame);
+resetButton.addEventListener ('click', resetGame);
 body.addEventListener ('keyup', pressEnter);
